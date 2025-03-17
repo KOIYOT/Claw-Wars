@@ -4,7 +4,7 @@
 
 ## 🛠 Tecnologías  
 - 🎮 **Motor:** Unity 6  
-- ✍️ **IDE:** JetBrains Rider  
+- 📝 **IDE:** JetBrains Rider  
 
 ## 🚀 Estado del Desarrollo  
 - 📌 **Versión actual:** Pre-Alpha `v0.1.0`  
