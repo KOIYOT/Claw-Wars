@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ef60daf5-f7cb-4930-9a2d-7b1d0497312a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Claw-Wars/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Claw-Wars/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Fonts/Pathway Extreme SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Fonts/Pathway Extreme SDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Splash.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Splash.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/AnimatorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/AnimatorController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shaders/UI_LiquidGradient.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/UI_LiquidGradient.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +100,7 @@
       <workItem from="1742246669360" duration="165000" />
       <workItem from="1742790540136" duration="639000" />
       <workItem from="1742794052365" duration="1040000" />
+      <workItem from="1742928792019" duration="3684000" />
     </task>
     <servers />
   </component>

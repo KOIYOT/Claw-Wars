@@ -269,6 +269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e534a6aafc2774694eb71ec29558c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SceneToLoad_: MainMenu
+  SplashRenderer_: {fileID: 451052521}
 --- !u!1 &1759647227
 GameObject:
   m_ObjectHideFlags: 0
