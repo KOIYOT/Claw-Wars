@@ -37,7 +37,7 @@ public class OptionsTabController : MonoBehaviour
             }
             else
             {
-                FindObjectOfType<MainMenuController>().ReturnToMainMenu(); // Regresar al menú principal
+                FindObjectOfType<MainMenuController>().ReturnToMainMenu();
             }
         }
     }
@@ -130,7 +130,7 @@ public class OptionsTabController : MonoBehaviour
             {
                 elapsed += Time.unscaledDeltaTime;
                 float t = Mathf.Clamp01(elapsed / fadeDuration);
-                t = Mathf.SmoothStep(0f, 1f, t); // Suavizado
+                t = Mathf.SmoothStep(0f, 1f, t);
                 currentGroup.alpha = Mathf.Lerp(1f, 0f, t);
                 yield return null;
             }

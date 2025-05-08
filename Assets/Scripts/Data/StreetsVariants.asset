@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4049055d5bdfee947a621990065db6ac, type: 3}
+  m_Name: StreetsVariants
+  m_EditorClassIdentifier: 
+  StreetVariants_:
+  - Id_: deadEnd
+    Variants_:
+    - {fileID: 3525904723885209391, guid: f4892d90a7304db44abc71799a5aee03, type: 3}
+    Weights_: []
+  - Id_: horizontal
+    Variants_:
+    - {fileID: 173908158065879394, guid: b92889b1c28d97548af1997e22f616ee, type: 3}
+    Weights_: []
+  - Id_: vertical
+    Variants_:
+    - {fileID: 173908158065879394, guid: b92889b1c28d97548af1997e22f616ee, type: 3}
+    Weights_: []
+  - Id_: cross
+    Variants_:
+    - {fileID: 3595834351495218392, guid: 6c9dd113d638f8d4ab46da289ec042af, type: 3}
+    Weights_: []
+  - Id_: tUp
+    Variants_:
+    - {fileID: 5360189893686061752, guid: ad1aa72833f3db0448a54ba48933a4ba, type: 3}
+    Weights_: []
+  - Id_: tDown
+    Variants_:
+    - {fileID: 5360189893686061752, guid: ad1aa72833f3db0448a54ba48933a4ba, type: 3}
+    Weights_: []
+  - Id_: tLeft
+    Variants_:
+    - {fileID: 5360189893686061752, guid: ad1aa72833f3db0448a54ba48933a4ba, type: 3}
+    Weights_: []
+  - Id_: tRight
+    Variants_:
+    - {fileID: 5360189893686061752, guid: ad1aa72833f3db0448a54ba48933a4ba, type: 3}
+    Weights_: []
+  - Id_: cornerTL
+    Variants_:
+    - {fileID: 201725027279220202, guid: 81cca019d96f5e745b5931f283279157, type: 3}
+    Weights_: []
+  - Id_: cornerTR
+    Variants_:
+    - {fileID: 201725027279220202, guid: 81cca019d96f5e745b5931f283279157, type: 3}
+    Weights_: []
+  - Id_: cornerBL
+    Variants_:
+    - {fileID: 201725027279220202, guid: 81cca019d96f5e745b5931f283279157, type: 3}
+    Weights_: []
+  - Id_: cornerBR
+    Variants_:
+    - {fileID: 201725027279220202, guid: 81cca019d96f5e745b5931f283279157, type: 3}
+    Weights_: []

@@ -39,7 +39,7 @@ public class SaveSlotButton : MonoBehaviour
             Debug.Log($"Cargando partida: Nivel {loaded.level}");
 
             if (menu != null)
-                menu.StartCoroutine(menu.FadeOutMusicAndLoadSceneAsync("Game"));
+                menu.StartCoroutine(menu.FadeOutMusicAndLoadSceneAsync("Lobby"));
         }
         
         else
@@ -55,7 +55,7 @@ public class SaveSlotButton : MonoBehaviour
             Debug.Log($"Nueva partida creada en slot {slotIndex}");
 
             if (menu != null)
-                menu.StartCoroutine(menu.FadeOutMusicAndLoadSceneAsync("Game"));
+                menu.StartCoroutine(menu.FadeOutMusicAndLoadSceneAsync("Lobby"));
         }
     }
 }
