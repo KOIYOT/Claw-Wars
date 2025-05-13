@@ -7,4 +7,4 @@
 - 📝 **IDE:** JetBrains Rider `(2024.3.6)`
 
 ## 🚧 Development Status
-- 📌 **Current Version:** `Pre-Alpha v0.1.0` 
+- 📌 **Current Version:** `Pre-Alpha (v0.2.8)` 
