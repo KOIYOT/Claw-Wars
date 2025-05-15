@@ -15,19 +15,19 @@ MonoBehaviour:
   StreetVariants_:
   - Id_: deadEnd
     Variants_:
-    - {fileID: 3525904723885209391, guid: f4892d90a7304db44abc71799a5aee03, type: 3}
+    - {fileID: 2210974507633064858, guid: f4892d90a7304db44abc71799a5aee03, type: 3}
     Weights_: []
   - Id_: horizontal
     Variants_:
-    - {fileID: 173908158065879394, guid: b92889b1c28d97548af1997e22f616ee, type: 3}
+    - {fileID: 3595834351495218392, guid: 6c9dd113d638f8d4ab46da289ec042af, type: 3}
     Weights_: []
   - Id_: vertical
     Variants_:
-    - {fileID: 173908158065879394, guid: b92889b1c28d97548af1997e22f616ee, type: 3}
+    - {fileID: 3595834351495218392, guid: 6c9dd113d638f8d4ab46da289ec042af, type: 3}
     Weights_: []
   - Id_: cross
     Variants_:
-    - {fileID: 3595834351495218392, guid: 6c9dd113d638f8d4ab46da289ec042af, type: 3}
+    - {fileID: 7277057268176588448, guid: 6434d043e060ed8409556f506174b0e4, type: 3}
     Weights_: []
   - Id_: tUp
     Variants_:

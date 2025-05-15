@@ -1,41 +1,47 @@
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class CityGenerator : MonoBehaviour
 {
-    public float TileSize_ = 3f;
+    [Header("Prefabs - Casas")]
+    public GameObject[] houseVariants;
 
-    public GameObject[] HouseVariants_;
+    [Header("Prefabs - Puntos especiales")]
+    public GameObject startPointPrefab;
+    public GameObject endPointPrefab;
 
-    public GameObject StartPointPrefab_;
-    public GameObject EndPointPrefab_;
+    [Header("Configuración de variantes de calles")]
+    public StreetVariant variantDatabase;
 
-    public StreetVariant VariantDatabase_;
+    [Header("Grid Settings")]
+    public int width = 50;
+    public int height = 50;
 
-    public int Width_ = 50;
-    public int Height_ = 50;
+    [Header("Road Generation")]
+    public int roadBuilders = 3;
+    public int maxSteps = 120;
+    public float turnChance = 0.4f;
+    public float branchChance = 0.3f;
+    public int minStreetCount = 30;
 
-    public int RoadBuilders_ = 5;
-    public int MaxSteps_ = 50;
-    public float TurnChance_ = 0.0125f;
-    public float BranchChance_ = 0.125f;
-    public int MinStreetCount_ = 150;
+    [Header("Escala del mundo")]
+    public float cellSize = 3f;
 
-    private string[,] Grid_;
-    private List<Vector2Int> StreetPositions_ = new List<Vector2Int>();
-    private Vector2Int StartPos_;
-    private Vector2Int EndPos_;
+    private string[,] grid;
+    private List<Vector2Int> streetPositions = new List<Vector2Int>();
+    private Vector2Int startPos;
+    private Vector2Int endPos;
 
-    private enum CellType_ { Empty, Street, House }
+    private enum CellType { Empty, Street, House }
 
-    private class RoadWalker_
+    private class RoadWalker
     {
-        public Vector2Int Position_;
-        public Vector2Int Direction_;
-        public int StepsLeft_;
+        public Vector2Int position;
+        public Vector2Int direction;
+        public int stepsLeft;
     }
 
-    private readonly Vector2Int[] Directions_ = new Vector2Int[]
+    private readonly Vector2Int[] directions = new Vector2Int[]
     {
         Vector2Int.up,
         Vector2Int.right,
@@ -51,303 +57,303 @@ public class CityGenerator : MonoBehaviour
     [ContextMenu("Generar Ciudad")]
     public void GenerateCity()
     {
-        int Attempts_ = 0;
-        const int MaxAttempts_ = 5;
+        int attempts = 0;
+        const int maxAttempts = 5;
 
         do
         {
-            ClearPrevious_();
-            Grid_ = new string[Width_, Height_];
-            GenerateStreets_();
-            Attempts_++;
+            ClearPrevious();
+            grid = new string[width, height];
+            GenerateStreets();
+            attempts++;
         }
-        while (CountStreets_() < MinStreetCount_ && Attempts_ < MaxAttempts_);
+        while (CountStreets() < minStreetCount && attempts < maxAttempts);
 
-        if (CountStreets_() < MinStreetCount_)
-        {
-            Debug.LogWarning("Failed to generate a city with enough streets after " + MaxAttempts_ + " attempts.");
-        }
-
-        MarkStartAndEnd_();
-        InstantiateStreets_();
-        PlaceHouses_();
+        MarkStartAndEnd();
+        InstantiateStreets();
+        PlaceHouses();
     }
 
-    void GenerateStreets_()
+    void GenerateStreets()
     {
-        CellType_[,] CellMap_ = new CellType_[Width_, Height_];
-        List<RoadWalker_> Walkers_ = new List<RoadWalker_>();
-        StreetPositions_.Clear();
+        CellType[,] cellMap = new CellType[width, height];
+        List<RoadWalker> walkers = new List<RoadWalker>();
+        streetPositions.Clear();
 
-        for (int i = 0; i < RoadBuilders_; i++)
+        for (int i = 0; i < roadBuilders; i++)
         {
-            Vector2Int Dir_ = Directions_[Random.Range(0, Directions_.Length)];
-            Walkers_.Add(new RoadWalker_
+            Vector2Int dir = directions[Random.Range(0, directions.Length)];
+            walkers.Add(new RoadWalker
             {
-                Position_ = new Vector2Int(Width_ / 2, Height_ / 2),
-                Direction_ = Dir_,
-                StepsLeft_ = MaxSteps_
+                position = new Vector2Int(width / 2, height / 2),
+                direction = dir,
+                stepsLeft = maxSteps
             });
         }
 
-        while (Walkers_.Count > 0)
+        while (walkers.Count > 0)
         {
-            List<RoadWalker_> NewWalkers_ = new List<RoadWalker_>();
+            List<RoadWalker> newWalkers = new List<RoadWalker>();
 
-            for (int i = Walkers_.Count - 1; i >= 0; i--)
+            for (int i = walkers.Count - 1; i >= 0; i--)
             {
-                var W_ = Walkers_[i];
+                var w = walkers[i];
 
-                if (!InBounds_(W_.Position_)) { Walkers_.RemoveAt(i); continue; }
-                if (!IsValidStreetPosition_(W_.Position_, CellMap_)) { Walkers_.RemoveAt(i); continue; }
+                if (!InBounds(w.position)) { walkers.RemoveAt(i); continue; }
+                if (!IsValidStreetPosition(w.position, cellMap)) { walkers.RemoveAt(i); continue; }
 
-                CellMap_[W_.Position_.x, W_.Position_.y] = CellType_.Street;
-                Grid_[W_.Position_.x, W_.Position_.y] = "street";
-                StreetPositions_.Add(W_.Position_);
+                cellMap[w.position.x, w.position.y] = CellType.Street;
+                grid[w.position.x, w.position.y] = "street";
+                streetPositions.Add(w.position);
 
-                if (Random.value < TurnChance_)
-                    W_.Direction_ = Turn_(W_.Direction_);
+                if (Random.value < turnChance)
+                    w.direction = Turn(w.direction);
 
-                W_.Position_ += W_.Direction_;
-                W_.StepsLeft_--;
+                w.position += w.direction;
+                w.stepsLeft--;
 
-                if (Random.value < BranchChance_)
+                if (Random.value < branchChance)
                 {
-                    Vector2Int NewDir_ = Turn_(W_.Direction_, Random.value > 0.5f);
-                    NewWalkers_.Add(new RoadWalker_
+                    Vector2Int newDir = Turn(w.direction, Random.value > 0.5f);
+                    newWalkers.Add(new RoadWalker
                     {
-                        Position_ = W_.Position_,
-                        Direction_ = NewDir_,
-                        StepsLeft_ = W_.StepsLeft_ / 2
+                        position = w.position,
+                        direction = newDir,
+                        stepsLeft = w.stepsLeft / 2
                     });
                 }
 
-                if (W_.StepsLeft_ <= 0) Walkers_.RemoveAt(i);
+                if (w.stepsLeft <= 0) walkers.RemoveAt(i);
             }
 
-            Walkers_.AddRange(NewWalkers_);
+            walkers.AddRange(newWalkers);
         }
     }
 
-    void MarkStartAndEnd_()
+    void MarkStartAndEnd()
     {
-        List<Vector2Int> BorderStreets_ = new List<Vector2Int>();
+        const float minDistanceBetweenPoints = 20f;
+        List<Vector2Int> borderStreets = new List<Vector2Int>();
 
-        foreach (var Pos_ in StreetPositions_)
+        foreach (var pos in streetPositions)
         {
-            if (Pos_.x <= 1 || Pos_.x >= Width_ - 2 || Pos_.y <= 1 || Pos_.y >= Height_ - 2)
-                BorderStreets_.Add(Pos_);
+            if (pos.x <= 1 || pos.x >= width - 2 || pos.y <= 1 || pos.y >= height - 2)
+                borderStreets.Add(pos);
         }
 
-        Vector2Int BestA_ = Vector2Int.zero;
-        Vector2Int BestB_ = Vector2Int.zero;
-        float BestDist_ = 0f;
+        Vector2Int bestA = Vector2Int.zero;
+        Vector2Int bestB = Vector2Int.zero;
+        float bestDist = 0f;
 
-        List<Vector2Int> Candidates_ = BorderStreets_.Count >= 2 ? BorderStreets_ : StreetPositions_;
+        List<Vector2Int> candidates = borderStreets.Count >= 2 ? borderStreets : streetPositions;
 
-        for (int i = 0; i < Candidates_.Count; i++)
+        for (int i = 0; i < candidates.Count; i++)
         {
-            for (int j = i + 1; j < Candidates_.Count; j++)
+            for (int j = i + 1; j < candidates.Count; j++)
             {
-                float Dist_ = Vector2.Distance(Candidates_[i], Candidates_[j]);
-                if (Dist_ > BestDist_)
+                float dist = Vector2.Distance(candidates[i], candidates[j]);
+                if (dist > bestDist)
                 {
-                    BestDist_ = Dist_;
-                    BestA_ = Candidates_[i];
-                    BestB_ = Candidates_[j];
+                    bestDist = dist;
+                    bestA = candidates[i];
+                    bestB = candidates[j];
                 }
             }
         }
 
-        StartPos_ = BestA_;
-        EndPos_ = BestB_;
-
-        if (InBounds_(StartPos_)) Grid_[StartPos_.x, StartPos_.y] = "start";
-        if (InBounds_(EndPos_)) Grid_[EndPos_.x, EndPos_.y] = "end";
+        startPos = bestA;
+        endPos = bestB;
+        grid[startPos.x, startPos.y] = "start";
+        grid[endPos.x, endPos.y] = "end";
+        ForceAsDeadEnd(startPos);
+        ForceAsDeadEnd(endPos);
     }
 
-    void InstantiateStreets_()
+    void InstantiateStreets()
     {
-        for (int x = 0; x < Width_; x++)
+        for (int x = 0; x < width; x++)
         {
-            for (int z = 0; z < Height_; z++)
+            for (int z = 0; z < height; z++)
             {
-                string Cell_ = Grid_[x, z];
+                string cell = grid[x, z];
+                if (cell == null) continue;
+                
+                bool up = IsStreet(x, z + 1);
+                bool down = IsStreet(x, z - 1);
+                bool left = IsStreet(x - 1, z);
+                bool right = IsStreet(x + 1, z);
 
-                if (Cell_ == null) continue;
+                Vector3 position = new Vector3(x * cellSize, 0, z * cellSize);
 
-                if (Cell_ == "start" || Cell_ == "end")
+                if (cell == "start" || cell == "end")
                 {
-                    bool Uup_ = IsStreet_(x, z + 1);
-                    bool Ddown_ = IsStreet_(x, z - 1);
-                    bool Lleft_ = IsStreet_(x - 1, z);
-                    bool Rright_ = IsStreet_(x + 1, z);
+                    int connected = (up ? 1 : 0) + (down ? 1 : 0) + (left ? 1 : 0) + (right ? 1 : 0);
 
-                    float RotaY_ = GetStreetRotation_("deadEnd", Uup_, Ddown_, Lleft_, Rright_);
-
-                    GameObject Prefab_ = Cell_ == "start" ? StartPointPrefab_ : EndPointPrefab_;
-                    if (Prefab_ != null)
+                    if (connected == 1)
                     {
-                         Instantiate(Prefab_, new Vector3(x * TileSize_, 0, z * TileSize_), Quaternion.Euler(0, RotaY_, 0), transform);
-                    } else {
-                         Debug.LogWarning(Cell_ + " Point Prefab is not assigned in the Inspector.");
+                        float rotation = 0f;
+                        if (up) rotation = 0f;
+                        else if (down) rotation = 180f;
+                        else if (left) rotation = -90f;
+                        else if (right) rotation = 90f;
+
+                        GameObject prefab = (cell == "start") ? startPointPrefab : endPointPrefab;
+                        Instantiate(prefab, position, Quaternion.Euler(0, rotation, 0), transform);
                     }
+                    else
+                    {
+                        Debug.LogWarning($"[{cell}] en ({x},{z}) tiene {connected} conexiones. NO se colocó porque no es un callejón cerrado.");
+                    }
+
                     continue;
                 }
 
-                if (Cell_ != "street") continue;
 
-                bool Up_ = IsStreet_(x, z + 1);
-                bool Down_ = IsStreet_(x, z - 1);
-                bool Left_ = IsStreet_(x - 1, z);
-                bool Right_ = IsStreet_(x + 1, z);
+                if (cell != "street") continue;
+                
+                string streetID = GetStreetID(up, down, left, right);
+                float rotY = GetStreetRotation(streetID, up, down, left, right);
 
-                string StreetID_ = GetStreetID_(Up_, Down_, Left_, Right_);
-                float RotY_ = GetStreetRotation_(StreetID_, Up_, Down_, Left_, Right_);
-
-                if (VariantDatabase_ != null)
+                if (variantDatabase != null)
                 {
-                    GameObject Prefab_ = VariantDatabase_.GetVariant_(StreetID_);
-                    if (Prefab_ != null)
-                        Instantiate(Prefab_, new Vector3(x * TileSize_, 0, z * TileSize_), Quaternion.Euler(0, RotY_, 0), transform);
-                     else {
-                         Debug.LogWarning("No street variant prefab found for ID: " + StreetID_);
-                     }
-                } else {
-                     Debug.LogWarning("Street Variant Database is not assigned.");
+                    GameObject prefab = variantDatabase.GetVariant_(streetID);
+                    if (prefab != null)
+                        Instantiate(prefab, position, Quaternion.Euler(0, rotY, 0), transform);
                 }
             }
         }
     }
 
-    float GetStreetRotation_(string id, bool up, bool down, bool left, bool right)
+    float GetStreetRotation(string id, bool up, bool down, bool left, bool right)
     {
         switch (id)
         {
             case "deadEnd":
-                if (up && !down && !left && !right) return 0f;
-                if (!up && down && !left && !right) return 180f;
-                if (!up && !down && left && !right) return -90f;
-                if (!up && !down && !left && right) return 90f;
+                if (up) return 0f;
+                if (down) return 180f;
+                if (left) return -90f;
+                if (right) return 90f;
                 break;
             case "tUp": return 0f;
             case "tDown": return 180f;
             case "tLeft": return -90f;
             case "tRight": return 90f;
-
             case "cornerTL": return 90f;
             case "cornerTR": return 180f;
             case "cornerBR": return -90f;
             case "cornerBL": return 0f;
-
-            case "horizontal": return 0f;
-            case "vertical": return 90f;
-            case "cross": return 0f;
+            case "horizontal": return 90f;
+            case "vertical": return 0f;
         }
         return 0f;
     }
-
-    string GetStreetID_(bool up, bool down, bool left, bool right)
+    
+    void ForceAsDeadEnd(Vector2Int pos)
     {
-        int Connections_ = (up ? 1 : 0) + (down ? 1 : 0) + (left ? 1 : 0) + (right ? 1 : 0);
+        List<Vector2Int> directions = new List<Vector2Int>
+        {
+            new Vector2Int(0, 1),
+            new Vector2Int(0, -1),
+            new Vector2Int(1, 0),
+            new Vector2Int(-1, 0)
+        };
 
-        if (Connections_ == 4) return "cross";
-        if (Connections_ == 3)
-        {
-            if (!right) return "tRight";
-            if (!left) return "tLeft";
-            if (!down) return "tUp";
-            if (!up) return "tDown";
-        }
-        if (Connections_ == 2)
-        {
-            if (up && right) return "cornerBL";
-            if (right && down) return "cornerTL";
-            if (down && left) return "cornerTR";
-            if (left && up) return "cornerBR";
-            if (left && right) return "horizontal";
-            if (up && down) return "vertical";
-        }
-        if (Connections_ == 1)
-        {
-            return "deadEnd";
-        }
+        int connected = 0;
+        Vector2Int keep = Vector2Int.zero;
 
-        return "empty";
+        foreach (var dir in directions)
+        {
+            Vector2Int neighbor = pos + dir;
+            if (InBounds(neighbor.x, neighbor.y) && grid[neighbor.x, neighbor.y] == "street")
+            {
+                connected++;
+                if (connected == 1)
+                    keep = neighbor;
+                else
+                    grid[neighbor.x, neighbor.y] = null; // eliminamos conexiones extra
+            }
+        }
     }
 
-
-    void PlaceHouses_()
+    string GetStreetID(bool up, bool down, bool left, bool right)
     {
-        for (int x = 0; x < Width_; x++)
+        if (up && down && left && right) return "cross";
+        if (up && down && left) return "tRight";
+        if (up && down && right) return "tLeft";
+        if (left && right && up) return "tDown";
+        if (left && right && down) return "tUp";
+        if (up && right) return "cornerBL";
+        if (right && down) return "cornerTL";
+        if (down && left) return "cornerTR";
+        if (left && up) return "cornerBR";
+        if (left && right) return "horizontal";
+        if (up && down) return "vertical";
+        return "deadEnd";
+    }
+
+    void PlaceHouses()
+    {
+        for (int x = 0; x < width; x++)
         {
-            for (int z = 0; z < Height_; z++)
+            for (int z = 0; z < height; z++)
             {
-                if (Grid_[x, z] == null && HasStreetNearby_(x, z) && !IsSurroundedByHouses_(x, z))
+                if (grid[x, z] == null && HasStreetNearby(x, z) && !IsSurroundedByHouses(x, z))
                 {
-                    Grid_[x, z] = "house";
-                    if (HouseVariants_ != null && HouseVariants_.Length > 0)
-                    {
-                        GameObject HouseToSpawn_ = HouseVariants_[Random.Range(0, HouseVariants_.Length)];
-                        if (HouseToSpawn_ != null)
-                             Instantiate(HouseToSpawn_, new Vector3(x * TileSize_, 0, z * TileSize_), Quaternion.identity, transform);
-                         else {
-                             Debug.LogWarning("One or more House Variants prefabs are not assigned.");
-                         }
-                    } else {
-                         Debug.LogWarning("House Variants array is empty or not assigned.");
-                    }
+                    grid[x, z] = "house";
+                    GameObject houseToSpawn = houseVariants[Random.Range(0, houseVariants.Length)];
+                    Vector3 position = new Vector3(x * cellSize, 0f, z * cellSize);
+                    Instantiate(houseToSpawn, position, Quaternion.identity, transform);
                 }
             }
         }
     }
 
-    int CountStreets_()
+    int CountStreets()
     {
-        int Count_ = 0;
-        for (int x = 0; x < Width_; x++)
-            for (int z = 0; z < Height_; z++)
-                if (Grid_[x, z] == "street" || Grid_[x, z] == "start" || Grid_[x, z] == "end")
-                    Count_++;
-        return Count_;
+        int count = 0;
+        for (int x = 0; x < width; x++)
+            for (int z = 0; z < height; z++)
+                if (grid[x, z] == "street")
+                    count++;
+        return count;
     }
 
-    bool HasStreetNearby_(int x, int z)
+    bool HasStreetNearby(int x, int z)
     {
-        int[][] Dirs_ = {
+        int[][] dirs = {
             new int[] { 0, 1 }, new int[] { 0, -1 },
             new int[] { 1, 0 }, new int[] { -1, 0 }
         };
 
-        foreach (var D_ in Dirs_)
+        foreach (var d in dirs)
         {
-            int Nx_ = x + D_[0], Nz_ = z + D_[1];
-            if (InBounds_(Nx_, Nz_) && IsStreet_(Nx_, Nz_))
+            int nx = x + d[0], nz = z + d[1];
+            if (InBounds(nx, nz) && (grid[nx, nz] == "street" || grid[nx, nz] == "start" || grid[nx, nz] == "end"))
                 return true;
         }
 
         return false;
     }
 
-    bool IsSurroundedByHouses_(int x, int z)
+    bool IsSurroundedByHouses(int x, int z)
     {
-        int Count_ = 0;
-        int[][] Dirs_ = {
+        int count = 0;
+        int[][] dirs = {
             new int[] { 0, 1 }, new int[] { 0, -1 },
             new int[] { 1, 0 }, new int[] { -1, 0 }
         };
 
-        foreach (var D_ in Dirs_)
+        foreach (var d in dirs)
         {
-            int Nx_ = x + D_[0], Nz_ = z + D_[1];
-            if (InBounds_(Nx_, Nz_) && Grid_[Nx_, Nz_] == "house")
-                Count_++;
+            int nx = x + d[0], nz = z + d[1];
+            if (InBounds(nx, nz) && grid[nx, nz] == "house")
+                count++;
         }
 
-        return Count_ == 4;
+        return count == 4;
     }
 
-    Vector2Int Turn_(Vector2Int dir, bool right = true)
+    Vector2Int Turn(Vector2Int dir, bool right = true)
     {
         if (dir == Vector2Int.up) return right ? Vector2Int.right : Vector2Int.left;
         if (dir == Vector2Int.right) return right ? Vector2Int.down : Vector2Int.up;
@@ -356,50 +362,45 @@ public class CityGenerator : MonoBehaviour
         return dir;
     }
 
-    bool IsValidStreetPosition_(Vector2Int pos, CellType_[,] map)
+    bool IsValidStreetPosition(Vector2Int pos, CellType[,] map)
     {
-        if (!InBounds_(pos)) return false;
-        if (map[pos.x, pos.y] != CellType_.Empty) return false;
-
-        int[][] Neighbors_ = {
+        int[][] neighbors = {
             new[] { 1, 0 }, new[] { -1, 0 },
             new[] { 0, 1 }, new[] { 0, -1 }
         };
 
-        int StreetCount_ = 0;
+        int streetCount = 0;
 
-        foreach (var N_ in Neighbors_)
+        foreach (var n in neighbors)
         {
-            int Nx_ = pos.x + N_[0], Ny_ = pos.y + N_[1];
-            if (InBounds_(Nx_, Ny_) && map[Nx_, Ny_] == CellType_.Street)
-                StreetCount_++;
+            int nx = pos.x + n[0], ny = pos.y + n[1];
+            if (InBounds(nx, ny) && map[nx, ny] == CellType.Street)
+                streetCount++;
         }
 
-        return StreetCount_ < 2;
+        return streetCount < 2;
     }
 
-    bool InBounds_(Vector2Int pos) => pos.x >= 1 && pos.x < Width_ - 1 && pos.y >= 1 && pos.y < Height_ - 1;
-    bool InBounds_(int x, int z) => x >= 1 && x < Width_ - 1 && z >= 1 && z < Height_ - 1;
+    bool InBounds(Vector2Int pos) => pos.x >= 1 && pos.x < width - 1 && pos.y >= 1 && pos.y < height - 1;
+    bool InBounds(int x, int z) => x >= 1 && x < width - 1 && z >= 1 && z < height - 1;
 
-#if UNITY_EDITOR
-    void ClearPrevious_()
+    void ClearPrevious()
     {
+#if UNITY_EDITOR
         for (int i = transform.childCount - 1; i >= 0; i--)
         {
-            GameObject Obj_ = transform.GetChild(i).gameObject;
+            GameObject obj = transform.GetChild(i).gameObject;
             if (!Application.isPlaying)
-                DestroyImmediate(Obj_);
+                DestroyImmediate(obj);
             else
-                Destroy(Obj_);
+                Destroy(obj);
         }
-    }
 #endif
+    }
 
-    bool IsStreet_(int x, int z)
+    bool IsStreet(int x, int z)
     {
-        return x >= 0 && x < Width_ && z >= 0 && z < Height_ &&
-               (Grid_[x, z] == "street" || Grid_[x, z] == "start" || Grid_[x, z] == "end");
+        return x >= 0 && x < width && z >= 0 && z < height &&
+               (grid[x, z] == "street" || grid[x, z] == "start" || grid[x, z] == "end");
     }
 }
-
-// © 2025 KOIYOT. All rights reserved.
