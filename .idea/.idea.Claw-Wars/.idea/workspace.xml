@@ -6,19 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="ef60daf5-f7cb-4930-9a2d-7b1d0497312a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Claw-Wars/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Claw-Wars/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Animation/Player/Idle.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animation/Player/Idle.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Fonts/Bahiana SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Fonts/Bahiana SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Player Variant.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Player Variant.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Animation/Player/PlayerController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animation/Player/PlayerController.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Streets/Street (I) (START).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Streets/Street (I) (START).prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Streets/Street (I).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Streets/Street (I).prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Input/InputSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/InputSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Input/InputSystem.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/InputSystem.inputactions" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Lobby.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Missions.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Missions.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/CityGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/CityGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/StreetsVariants.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/StreetsVariants.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shaders/MT_SignAdvertence.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/MT_SignAdvertence.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/PlayerSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/PlayerSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerUIController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerUIController.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,10 +29,14 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Core/DawnTimer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Core/EnemySpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Core/ReturnInteractable.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerUIController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerCombat.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerDash.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerResistance.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerStamina.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/OptionsTabController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/SceneFadeIn.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@e2c83221d2dc/InputSystem/Editor/ProjectWideActions/ProjectWideActionsAsset.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@e2c83221d2dc/InputSystem/Plugins/PlayerInput/PlayerInput.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -167,6 +168,9 @@
       <workItem from="1746733132178" duration="126000" />
       <workItem from="1746738264631" duration="14000" />
       <workItem from="1747331280201" duration="5585000" />
+      <workItem from="1747423299342" duration="3301000" />
+      <workItem from="1747530379093" duration="6346000" />
+      <workItem from="1747582421886" duration="3727000" />
     </task>
     <servers />
   </component>

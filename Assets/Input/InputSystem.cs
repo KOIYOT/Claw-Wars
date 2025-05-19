@@ -144,6 +144,33 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LightAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""94e55daa-129e-4dc9-bccb-3bcdb1280220"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HeavyAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""1772da6a-dd70-4a1a-9b5e-f8c40d562051"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Block"",
+                    ""type"": ""Button"",
+                    ""id"": ""125840aa-1674-44df-93da-bdcfa14b733a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -322,45 +349,10 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""Combat"",
-            ""id"": ""31d1e8d2-8912-4315-8968-32c2457a6240"",
-            ""actions"": [
-                {
-                    ""name"": ""LightAttack"",
-                    ""type"": ""Button"",
-                    ""id"": ""111ba95d-707e-4ac6-88bf-4c554eacd78b"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 },
-                {
-                    ""name"": ""HeavyAttack"",
-                    ""type"": ""Button"",
-                    ""id"": ""3a26d4fc-18da-4383-af57-50e2083e21ed"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Block"",
-                    ""type"": ""Button"",
-                    ""id"": ""520911c1-7d87-4725-91dc-2c9035876d90"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""82783d6f-3c58-4a71-b494-072f9e6d4e9e"",
+                    ""id"": ""179bfce7-fd4f-4f18-8765-d382e76fb605"",
                     ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -371,7 +363,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""e705bcae-859c-4c12-b203-868c63b03d3a"",
+                    ""id"": ""51e4dac5-d48a-4039-b8cb-4ea5cc51890c"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -382,7 +374,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""144554e8-8d12-4565-823f-cc3ef4f21ab2"",
+                    ""id"": ""ded848a2-6fcc-4ee8-ba7d-fe3b047d2d4d"",
                     ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -393,7 +385,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""7effb7b7-4304-4899-a062-4788d5da3f9d"",
+                    ""id"": ""878f34a2-3ab1-4bc5-b979-c4bb7e5a5cdd"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -404,7 +396,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""706d0708-f57a-4ffe-812a-71c5f97d754b"",
+                    ""id"": ""5ccc6ffa-2840-4c70-b52a-27d28754e168"",
                     ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -415,7 +407,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2877f36e-fffb-453e-a110-20234aa78d27"",
+                    ""id"": ""28631e71-4831-417c-a84e-df405398cfb6"",
                     ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -425,6 +417,12 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Combat"",
+            ""id"": ""31d1e8d2-8912-4315-8968-32c2457a6240"",
+            ""actions"": [],
+            ""bindings"": []
         },
         {
             ""name"": ""Camera"",
@@ -804,11 +802,11 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         m_Move_Run = m_Move.FindAction("Run", throwIfNotFound: true);
         m_Move_Crouch = m_Move.FindAction("Crouch", throwIfNotFound: true);
         m_Move_Interact = m_Move.FindAction("Interact", throwIfNotFound: true);
+        m_Move_LightAttack = m_Move.FindAction("LightAttack", throwIfNotFound: true);
+        m_Move_HeavyAttack = m_Move.FindAction("HeavyAttack", throwIfNotFound: true);
+        m_Move_Block = m_Move.FindAction("Block", throwIfNotFound: true);
         // Combat
         m_Combat = asset.FindActionMap("Combat", throwIfNotFound: true);
-        m_Combat_LightAttack = m_Combat.FindAction("LightAttack", throwIfNotFound: true);
-        m_Combat_HeavyAttack = m_Combat.FindAction("HeavyAttack", throwIfNotFound: true);
-        m_Combat_Block = m_Combat.FindAction("Block", throwIfNotFound: true);
         // Camera
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
         m_Camera_Look = m_Camera.FindAction("Look", throwIfNotFound: true);
@@ -911,6 +909,9 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     private readonly InputAction m_Move_Run;
     private readonly InputAction m_Move_Crouch;
     private readonly InputAction m_Move_Interact;
+    private readonly InputAction m_Move_LightAttack;
+    private readonly InputAction m_Move_HeavyAttack;
+    private readonly InputAction m_Move_Block;
     /// <summary>
     /// Provides access to input actions defined in input action map "Move".
     /// </summary>
@@ -946,6 +947,18 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Move/Interact".
         /// </summary>
         public InputAction @Interact => m_Wrapper.m_Move_Interact;
+        /// <summary>
+        /// Provides access to the underlying input action "Move/LightAttack".
+        /// </summary>
+        public InputAction @LightAttack => m_Wrapper.m_Move_LightAttack;
+        /// <summary>
+        /// Provides access to the underlying input action "Move/HeavyAttack".
+        /// </summary>
+        public InputAction @HeavyAttack => m_Wrapper.m_Move_HeavyAttack;
+        /// <summary>
+        /// Provides access to the underlying input action "Move/Block".
+        /// </summary>
+        public InputAction @Block => m_Wrapper.m_Move_Block;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -990,6 +1003,15 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @LightAttack.started += instance.OnLightAttack;
+            @LightAttack.performed += instance.OnLightAttack;
+            @LightAttack.canceled += instance.OnLightAttack;
+            @HeavyAttack.started += instance.OnHeavyAttack;
+            @HeavyAttack.performed += instance.OnHeavyAttack;
+            @HeavyAttack.canceled += instance.OnHeavyAttack;
+            @Block.started += instance.OnBlock;
+            @Block.performed += instance.OnBlock;
+            @Block.canceled += instance.OnBlock;
         }
 
         /// <summary>
@@ -1019,6 +1041,15 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @LightAttack.started -= instance.OnLightAttack;
+            @LightAttack.performed -= instance.OnLightAttack;
+            @LightAttack.canceled -= instance.OnLightAttack;
+            @HeavyAttack.started -= instance.OnHeavyAttack;
+            @HeavyAttack.performed -= instance.OnHeavyAttack;
+            @HeavyAttack.canceled -= instance.OnHeavyAttack;
+            @Block.started -= instance.OnBlock;
+            @Block.performed -= instance.OnBlock;
+            @Block.canceled -= instance.OnBlock;
         }
 
         /// <summary>
@@ -1056,9 +1087,6 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
     // Combat
     private readonly InputActionMap m_Combat;
     private List<ICombatActions> m_CombatActionsCallbackInterfaces = new List<ICombatActions>();
-    private readonly InputAction m_Combat_LightAttack;
-    private readonly InputAction m_Combat_HeavyAttack;
-    private readonly InputAction m_Combat_Block;
     /// <summary>
     /// Provides access to input actions defined in input action map "Combat".
     /// </summary>
@@ -1070,18 +1098,6 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         /// Construct a new instance of the input action map wrapper class.
         /// </summary>
         public CombatActions(@InputSystem wrapper) { m_Wrapper = wrapper; }
-        /// <summary>
-        /// Provides access to the underlying input action "Combat/LightAttack".
-        /// </summary>
-        public InputAction @LightAttack => m_Wrapper.m_Combat_LightAttack;
-        /// <summary>
-        /// Provides access to the underlying input action "Combat/HeavyAttack".
-        /// </summary>
-        public InputAction @HeavyAttack => m_Wrapper.m_Combat_HeavyAttack;
-        /// <summary>
-        /// Provides access to the underlying input action "Combat/Block".
-        /// </summary>
-        public InputAction @Block => m_Wrapper.m_Combat_Block;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1108,15 +1124,6 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_CombatActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_CombatActionsCallbackInterfaces.Add(instance);
-            @LightAttack.started += instance.OnLightAttack;
-            @LightAttack.performed += instance.OnLightAttack;
-            @LightAttack.canceled += instance.OnLightAttack;
-            @HeavyAttack.started += instance.OnHeavyAttack;
-            @HeavyAttack.performed += instance.OnHeavyAttack;
-            @HeavyAttack.canceled += instance.OnHeavyAttack;
-            @Block.started += instance.OnBlock;
-            @Block.performed += instance.OnBlock;
-            @Block.canceled += instance.OnBlock;
         }
 
         /// <summary>
@@ -1128,15 +1135,6 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         /// <seealso cref="CombatActions" />
         private void UnregisterCallbacks(ICombatActions instance)
         {
-            @LightAttack.started -= instance.OnLightAttack;
-            @LightAttack.performed -= instance.OnLightAttack;
-            @LightAttack.canceled -= instance.OnLightAttack;
-            @HeavyAttack.started -= instance.OnHeavyAttack;
-            @HeavyAttack.performed -= instance.OnHeavyAttack;
-            @HeavyAttack.canceled -= instance.OnHeavyAttack;
-            @Block.started -= instance.OnBlock;
-            @Block.performed -= instance.OnBlock;
-            @Block.canceled -= instance.OnBlock;
         }
 
         /// <summary>
@@ -1501,14 +1499,6 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInteract(InputAction.CallbackContext context);
-    }
-    /// <summary>
-    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Combat" which allows adding and removing callbacks.
-    /// </summary>
-    /// <seealso cref="CombatActions.AddCallbacks(ICombatActions)" />
-    /// <seealso cref="CombatActions.RemoveCallbacks(ICombatActions)" />
-    public interface ICombatActions
-    {
         /// <summary>
         /// Method invoked when associated input action "LightAttack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
@@ -1530,6 +1520,14 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnBlock(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Combat" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="CombatActions.AddCallbacks(ICombatActions)" />
+    /// <seealso cref="CombatActions.RemoveCallbacks(ICombatActions)" />
+    public interface ICombatActions
+    {
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Camera" which allows adding and removing callbacks.

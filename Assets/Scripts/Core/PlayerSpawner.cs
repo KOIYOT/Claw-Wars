@@ -6,10 +6,7 @@ public class PlayerSpawner : MonoBehaviour
 
     void Start()
     {
-        if (PlayerController.Instance == null)
-        {
             GameObject Player_ = Instantiate(PlayerPrefab_, transform.position, transform.rotation);
-        }
     }
 }
 
