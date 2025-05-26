@@ -77,8 +77,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae1b69f3e6fba944acf46e7db104209, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 3692171391690600702, guid: e09276a3ccfb4174fb7693cf3c3748ea, type: 3}
+  enemyPrefab: {fileID: 107020774660602059, guid: 21b571c083a65e8479ab8149bfa8b96f, type: 3}
   minEnemies: 1
   maxEnemies: 2
-  spawnHeight: 1
+  spawnHeight: 0.05
   spacing: 0.5

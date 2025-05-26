@@ -460,9 +460,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   houseVariants:
-  - {fileID: 4889730004959151320, guid: 7a0f961d7dd0d12499fc1385c4bac42a, type: 3}
-  - {fileID: 4889730004959151320, guid: 7a0f961d7dd0d12499fc1385c4bac42a, type: 3}
-  - {fileID: 4889730004959151320, guid: 7a0f961d7dd0d12499fc1385c4bac42a, type: 3}
+  - {fileID: 634970189350668889, guid: e9b7a05d7353e61488216821deb25960, type: 3}
+  - {fileID: 5336424653548876286, guid: 3cafde3e5efafe84aa9acdd525ceb3b3, type: 3}
+  - {fileID: 3485427572014351942, guid: 421a028375d072c4baefcb8c74802d07, type: 3}
+  - {fileID: 2957768280587563200, guid: 27f06b258eb3f224c8db41135e0e41ea, type: 3}
+  - {fileID: 6783074387821263107, guid: 4ca295a9aecde7745b0b1775619c93b2, type: 3}
   - {fileID: 6618107831610140698, guid: a7d5ae1889d37874b9ebbe042183185a, type: 3}
   startPointPrefab: {fileID: 2790699514959594052, guid: 27e5576374cb062489ea807e7339d62b, type: 3}
   endPointPrefab: {fileID: 6348599486083360284, guid: 31c7f9a76b09f5a46a85ab389838dba7, type: 3}

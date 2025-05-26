@@ -20,10 +20,12 @@ MonoBehaviour:
   - Id_: horizontal
     Variants_:
     - {fileID: 3595834351495218392, guid: 6c9dd113d638f8d4ab46da289ec042af, type: 3}
+    - {fileID: 7553678121125998386, guid: c8448625120c0f345bcf5de098058fa3, type: 3}
     Weights_: []
   - Id_: vertical
     Variants_:
     - {fileID: 3595834351495218392, guid: 6c9dd113d638f8d4ab46da289ec042af, type: 3}
+    - {fileID: 7553678121125998386, guid: c8448625120c0f345bcf5de098058fa3, type: 3}
     Weights_: []
   - Id_: cross
     Variants_:
