@@ -26,17 +26,13 @@ public class PauseMenuController : MonoBehaviour
     {
         playerInput = FindFirstObjectByType<PlayerInput>();
     }
-
-    private void OnEnable()
+    private void Start()
     {
         if (playerInput != null)
+        {
+            playerInput.actions["Pause"].performed -= OnPausePressed; // por si ya está duplicado
             playerInput.actions["Pause"].performed += OnPausePressed;
-    }
-
-    private void OnDisable()
-    {
-        if (playerInput != null)
-            playerInput.actions["Pause"].performed -= OnPausePressed;
+        }
     }
 
     private void OnPausePressed(InputAction.CallbackContext ctx)
@@ -63,6 +59,16 @@ public class PauseMenuController : MonoBehaviour
 
     public void PauseGame()
     {
+        Debug.Log(">>> Se ejecutó PauseGame()");
+
+        // FORZAR la reactivación total del panel, aunque ya esté activo
+        pauseMenuGroup.gameObject.SetActive(false);
+        pauseMenuGroup.gameObject.SetActive(true);
+
+        pauseMenuGroup.alpha = 0f;
+        pauseMenuGroup.interactable = false;
+        pauseMenuGroup.blocksRaycasts = false;
+
         Time.timeScale = 0f;
         StartCoroutine(FadeInGroup(pauseMenuGroup));
         EventSystem.current.SetSelectedGameObject(null);
@@ -73,8 +79,10 @@ public class PauseMenuController : MonoBehaviour
             MouseLockCenter.Instance.UnlockMouse();
     }
 
+
     public void ResumeGame()
     {
+        Debug.Log("ResumeGame() llamado");
         StartCoroutine(FadeOutGroup(pauseMenuGroup, () => {
             Time.timeScale = 1f;
             isPaused = false;
@@ -91,10 +99,9 @@ public class PauseMenuController : MonoBehaviour
             isPaused = false;
 
             if (MouseLockCenter.Instance != null)
-                MouseLockCenter.Instance.LockMouse();
+                MouseLockCenter.Instance.UnlockMouse();
 
-            if (tutorialController != null)
-                tutorialController.SendMessage("StartTutorial");
+            tutorialController.GetComponent<TutorialController>().StartTutorial();
         }));
     }
 
@@ -165,5 +172,18 @@ public class PauseMenuController : MonoBehaviour
         fadeOverlay.color = new Color(original.r, original.g, original.b, 1f);
         Time.timeScale = 1f;
         SceneManager.LoadScene(sceneName);
+    }
+    public void ResetPauseState()
+    {
+        isPaused = false;
+
+        // Restaurar el estado visual del panel de pausa para que pueda aparecer luego
+        pauseMenuGroup.gameObject.SetActive(true);
+        pauseMenuGroup.alpha = 0f;
+        pauseMenuGroup.interactable = false;
+        pauseMenuGroup.blocksRaycasts = false;
+
+        if (MouseLockCenter.Instance != null)
+            MouseLockCenter.Instance.LockMouse();
     }
 }

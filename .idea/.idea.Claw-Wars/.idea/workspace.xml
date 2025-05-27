@@ -6,17 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ef60daf5-f7cb-4930-9a2d-7b1d0497312a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Claw-Wars/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Claw-Wars/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Animation/Player/PlayerController.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animation/Player/PlayerController.controller" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Art/Fonts/Bahiana SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Fonts/Bahiana SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Enemy.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Parking/EnemySpawner.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Parking/EnemySpawner.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Streets/Street (V).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Streets/Street (V).prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Input/InputSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/InputSystem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Input/InputSystem.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/InputSystem.inputactions" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Lobby.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Missions.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Missions.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camera/MouseLockCenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Camera/MouseLockCenter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/StreetsVariants.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/StreetsVariants.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PauseMenuController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PauseMenuController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,6 +167,7 @@
       <workItem from="1747761107606" duration="685000" />
       <workItem from="1747767954910" duration="2066000" />
       <workItem from="1748220153284" duration="1463000" />
+      <workItem from="1748283431166" duration="3694000" />
     </task>
     <servers />
   </component>
