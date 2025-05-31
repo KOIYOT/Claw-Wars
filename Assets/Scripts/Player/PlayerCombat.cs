@@ -1,10 +1,11 @@
-using UnityEngine.InputSystem;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerCombat : MonoBehaviour
 {
     public float LightAttackCost_ = 5f;
     public float HeavyAttackCost_ = 10f;
+    public GameObject HitboxObject_; // <- Esto es nuevo
 
     private Animator Animator_;
     private PlayerStamina Stamina_;
@@ -18,16 +19,12 @@ public class PlayerCombat : MonoBehaviour
 
     public void OnLightAttack_(InputAction.CallbackContext context)
     {
-        if (context.started)
-            Debug.Log("Input recibido: Ataque débil");
-
         if (context.started && !IsAttacking_ && Stamina_.UseStamina_(LightAttackCost_))
         {
             Animator_.SetTrigger("Attack_Light");
             StartAttack_();
         }
     }
-
 
     public void OnHeavyAttack_(InputAction.CallbackContext context)
     {
@@ -41,11 +38,20 @@ public class PlayerCombat : MonoBehaviour
     private void StartAttack_()
     {
         IsAttacking_ = true;
-        Invoke(nameof(EndAttack_), 0.75f); // duración aproximada, se ajusta según la animación
+        Debug.Log("Ataque iniciado");
+
+        Debug.Log("Activando Hitbox");
+        if (HitboxObject_ != null)
+            HitboxObject_.GetComponent<AttackHitbox>().ActivateHitbox_();
+
+        Invoke(nameof(EndAttack_), 0.75f);
     }
 
     private void EndAttack_()
     {
+        if (HitboxObject_ != null)
+            HitboxObject_.GetComponent<AttackHitbox>().DeactivateHitbox_();
+
         IsAttacking_ = false;
     }
 }

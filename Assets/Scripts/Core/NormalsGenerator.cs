@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+/*using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System.Linq;
@@ -83,4 +83,4 @@ public class NormalsGenerator : MonoBehaviour
     }
 }
 
-// © 2025 KOIYOT. All rights reserved.
+// © 2025 KOIYOT. All rights reserved.*/

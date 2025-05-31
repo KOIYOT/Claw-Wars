@@ -6,7 +6,8 @@ public class PlayerSpawner : MonoBehaviour
 
     void Start()
     {
-            GameObject Player_ = Instantiate(PlayerPrefab_, transform.position, transform.rotation);
+        GameObject Player_ = Instantiate(PlayerPrefab_, transform.position, transform.rotation);
+        Player_.tag = "Player";
     }
 }
 

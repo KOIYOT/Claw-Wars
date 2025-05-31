@@ -1,5 +1,6 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.AI;
+using UnityEngine;
 
 public class CityGenerator : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class CityGenerator : MonoBehaviour
     private List<Vector2Int> streetPositions = new List<Vector2Int>();
     private Vector2Int startPos;
     private Vector2Int endPos;
+    private NavMeshSurface navMeshSurface_;
 
     private enum CellType { Empty, Street, House }
 
@@ -72,6 +74,17 @@ public class CityGenerator : MonoBehaviour
         MarkStartAndEnd();
         InstantiateStreets();
         PlaceHouses();
+        
+        navMeshSurface_ = GetComponent<NavMeshSurface>();
+        if (navMeshSurface_ != null)
+        {
+            navMeshSurface_.BuildNavMesh();
+            Debug.Log("✅ NavMesh generado correctamente");
+        }
+        else
+        {
+            Debug.LogWarning("⚠️ No se encontró NavMeshSurface en este objeto");
+        }
     }
 
     void GenerateStreets()

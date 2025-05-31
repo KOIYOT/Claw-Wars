@@ -7,8 +7,36 @@
     <list default="true" id="ef60daf5-f7cb-4930-9a2d-7b1d0497312a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Claw-Wars/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Claw-Wars/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Art/Fonts/Bahiana SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Fonts/Bahiana SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/House/House01.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/House/House01.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/House/House02.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/House/House02.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/House/House03.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/House/House03.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/House/House04.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/House/House04.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/House/House05.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/House/House05.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Parking/Parking (Style 1).obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Parking/Parking (Style 1).obj.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Props/Ilumination.obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Props/Ilumination.obj.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Props/Light pole.obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Props/Light pole.obj.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Props/SignAdvertence.obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Props/SignAdvertence.obj.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Props/Wires.obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Props/Wires.obj.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Streets/Street (H).obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Streets/Street (H).obj.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Streets/Street (I).obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Streets/Street (I).obj.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Streets/Street (L).obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Streets/Street (L).obj.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Streets/Street (T).obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Streets/Street (T).obj.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Streets/Street (V).obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Streets/Street (V).obj.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Streets/Street (X).obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Streets/Street (X).obj.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Enemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/PerformanceTestRunInfo.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/PerformanceTestRunInfo.json.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/PerformanceTestRunSettings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/PerformanceTestRunSettings.json.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Lobby.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/PauseMenuController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/PauseMenuController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Missions.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Missions.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/CityGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/CityGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/NormalsGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/NormalsGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/PlayerSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/PlayerSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/AttackHitbox.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/AttackHitbox.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCombat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCombat.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,9 +47,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Core/CityGenerator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Isr4_/Documentos/KOIYOT/Games/Claw-Wars/Assets/Scripts/Core/CityGenerator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Core/DawnTimer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Core/EnemySpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Core/ReturnInteractable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyIA.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerCombat.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerDash.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" root0="FORCE_HIGHLIGHTING" />
@@ -167,7 +198,11 @@
       <workItem from="1747761107606" duration="685000" />
       <workItem from="1747767954910" duration="2066000" />
       <workItem from="1748220153284" duration="1463000" />
-      <workItem from="1748283431166" duration="3694000" />
+      <workItem from="1748283431166" duration="4973000" />
+      <workItem from="1748314939260" duration="1123000" />
+      <workItem from="1748557658274" duration="3986000" />
+      <workItem from="1748562076728" duration="848000" />
+      <workItem from="1748623780879" duration="8413000" />
     </task>
     <servers />
   </component>

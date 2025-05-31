@@ -771,7 +771,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4407074965191946992}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.19323912, y: -0.0014265978, z: -0.00028097062, w: 0.9811506}
+  m_LocalRotation: {x: -0.21382275, y: -0.0014203757, z: -0.0003108993, w: 0.97687143}
   m_LocalPosition: {x: 0.0029080033, y: 0.15, z: -0.99999577}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -925,7 +925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca7de3aefa901374ba29464584a3109a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraRadius: 0.25
+  CameraRadius: 0.2
   Decollision:
     Enabled: 0
     ObstacleLayers:
@@ -941,7 +941,7 @@ MonoBehaviour:
     TerrainLayers:
       serializedVersion: 2
       m_Bits: 1
-    MaximumRaycast: 10
+    MaximumRaycast: 0.5
     Damping: 1
 --- !u!114 &3391345846811749327
 MonoBehaviour:
@@ -1628,8 +1628,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5549520871728929609}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.1932391, y: -0.001426569, z: -0.0002809649, w: 0.9811506}
-  m_LocalPosition: {x: 0.0029080033, y: 0.39020085, z: -0.99999577}
+  m_LocalRotation: {x: -0.21382272, y: -0.0014203575, z: -0.0003108953, w: 0.97687143}
+  m_LocalPosition: {x: 0.0029080033, y: 0.34020013, z: -0.99999577}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2759,6 +2759,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 635547659545568360, guid: 1094878f2f09bf7409076ddbe9f6cd62, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3293478015037216593}
+    - targetCorrespondingSourceObject: {fileID: 635547659545568360, guid: 1094878f2f09bf7409076ddbe9f6cd62, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8977531468964731563}
   m_SourcePrefab: {fileID: 100100000, guid: 1094878f2f09bf7409076ddbe9f6cd62, type: 3}
 --- !u!4 &2657616315393045169 stripped
 Transform:
@@ -2805,6 +2808,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage_: 10
   IsActive_: 0
+--- !u!54 &8977531468964731563
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3151092240609112370}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3434680097472817163 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1094878f2f09bf7409076ddbe9f6cd62, type: 3}
@@ -3038,6 +3068,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 125840aa-1674-44df-93da-bdcfa14b733a
     m_ActionName: 'Move/Block[/Keyboard/q]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6f40851c-a990-463c-87cf-05611eae3d9d
+    m_ActionName: 'Move/Pause[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Move
@@ -3107,6 +3141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LightAttackCost_: 5
   HeavyAttackCost_: 10
+  HitboxObject_: {fileID: 3151092240609112370}
 --- !u!114 &5130504897685556993
 MonoBehaviour:
   m_ObjectHideFlags: 0
