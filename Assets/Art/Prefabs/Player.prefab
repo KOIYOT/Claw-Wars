@@ -771,7 +771,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4407074965191946992}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.21382275, y: -0.0014203757, z: -0.0003108993, w: 0.97687143}
+  m_LocalRotation: {x: -0.28421474, y: -0.0013939982, z: -0.0004132369, w: 0.9587596}
   m_LocalPosition: {x: 0.0029080033, y: 0.15, z: -0.99999577}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1628,8 +1628,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5549520871728929609}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.21382272, y: -0.0014203575, z: -0.0003108953, w: 0.97687143}
-  m_LocalPosition: {x: 0.0029080033, y: 0.34020013, z: -0.99999577}
+  m_LocalRotation: {x: -0.28421476, y: -0.0013939984, z: -0.000413237, w: 0.9587596}
+  m_LocalPosition: {x: 0.0029080033, y: 0.15, z: -0.99999577}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2587,6 +2587,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 57edf88889a486a46b7ca7c8a79f6bcb, type: 2}
+    - target: {fileID: 635547659545568360, guid: 1094878f2f09bf7409076ddbe9f6cd62, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1094878f2f09bf7409076ddbe9f6cd62, type: 3}
       propertyPath: m_Name
       value: Mannecat
@@ -2723,6 +2727,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1094878f2f09bf7409076ddbe9f6cd62, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2196426458405859407}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1094878f2f09bf7409076ddbe9f6cd62, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3387455830959820834}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1094878f2f09bf7409076ddbe9f6cd62, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3462823291697037519}
@@ -2862,6 +2869,29 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!136 &3387455830959820834
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3434680097472817163}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.25
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.55, z: 0}
 --- !u!143 &3462823291697037519
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2981,7 +3011,19 @@ MonoBehaviour:
     m_ActionId: 59501c10-8af8-4cf0-a66c-697d16131a3f
     m_ActionName: 'Move/Crouch[/Keyboard/leftCtrl]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1847733703545707404}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 487ddd71-1c96-4ae5-bcff-0d3c37e99fec
     m_ActionName: 'Move/Interact[/Keyboard/e]'
   - m_PersistentCalls:
@@ -3092,9 +3134,6 @@ MonoBehaviour:
   WalkSpeed_: 2
   RunSpeed_: 5
   RotationSpeed_: 10
-  JumpHeight_: 1.5
-  Gravity_: -9.81
-  RunStaminaCostPerSecond_: 25
   CameraTransform_: {fileID: 2330835957334548167}
   Animator_: {fileID: 2196426458405859407}
 --- !u!114 &8499816323247367416
@@ -3127,6 +3166,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth_: 100
   CurrentHealth_: 100
+  GameOverSceneName: GameOver
+  FadePanel_: {fileID: 0}
+  FadeDuration_: 1
 --- !u!114 &2040305223708177735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3171,8 +3213,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxResistance_: 50
   CurrentResistance_: 50
-  RegenRate_: 10
   RegenDelay_: 2
+  BrokenRegenRate_: 20
+  BarReal_: {fileID: 8675505831897787554}
+  BarDelay_: {fileID: 6289165723158913994}
+  BarLerpSpeed_: 2
+  IsBroken_: 0
 --- !u!114 &7517098066313550356
 MonoBehaviour:
   m_ObjectHideFlags: 0

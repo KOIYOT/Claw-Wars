@@ -7,36 +7,30 @@
     <list default="true" id="ef60daf5-f7cb-4930-9a2d-7b1d0497312a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Claw-Wars/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Claw-Wars/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Art/Fonts/Bahiana SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Fonts/Bahiana SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/House/House01.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/House/House01.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/House/House02.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/House/House02.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/House/House03.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/House/House03.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/House/House04.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/House/House04.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/House/House05.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/House/House05.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Parking/Parking (Style 1).obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Parking/Parking (Style 1).obj.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Props/Ilumination.obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Props/Ilumination.obj.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Props/Light pole.obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Props/Light pole.obj.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Props/SignAdvertence.obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Props/SignAdvertence.obj.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Props/Wires.obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Props/Wires.obj.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Streets/Street (H).obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Streets/Street (H).obj.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Streets/Street (I).obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Streets/Street (I).obj.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Streets/Street (L).obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Streets/Street (L).obj.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Streets/Street (T).obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Streets/Street (T).obj.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Streets/Street (V).obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Streets/Street (V).obj.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Models/Streets/Street (X).obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Models/Streets/Street (X).obj.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Enemy.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/PerformanceTestRunInfo.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/PerformanceTestRunInfo.json.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/PerformanceTestRunSettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/PerformanceTestRunSettings.json.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Streets/Street (I) (END).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Streets/Street (I) (END).prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Input/InputSystem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/InputSystem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Input/InputSystem.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/InputSystem.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/UI_LiquidGradient_M.mat.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/UI_LiquidGradient_M.mat.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Lobby.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Missions.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Missions.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/CityGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/CityGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/NormalsGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/NormalsGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/PlayerSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/PlayerSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/MissionInteractable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/MissionInteractable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/ReturnInteractable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/ReturnInteractable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/SaveData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/SaveData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/SaveSlotButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/SaveSlotButton.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyHealth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/AttackHitbox.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/AttackHitbox.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyIA.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyIA.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerBlock.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerBlock.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCombat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCombat.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerResistance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerResistance.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/PC_Volume.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/PC_Volume.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +83,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$USER_HOME$/Downloads\Claw Wars.exe" />
+      <option name="EXE_PATH" value="$USER_HOME$/OneDrive/Pictures\Claw Wars.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\Isr4_\Downloads" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -202,7 +196,10 @@
       <workItem from="1748314939260" duration="1123000" />
       <workItem from="1748557658274" duration="3986000" />
       <workItem from="1748562076728" duration="848000" />
-      <workItem from="1748623780879" duration="8413000" />
+      <workItem from="1748623780879" duration="10347000" />
+      <workItem from="1748707685901" duration="13119000" />
+      <workItem from="1748795059810" duration="5598000" />
+      <workItem from="1748870305625" duration="12471000" />
     </task>
     <servers />
   </component>

@@ -464,7 +464,7 @@ public partial class @InputSystem: IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""469ab689-6480-42b7-9933-b0df886045b1"",
                     ""expectedControlType"": ""Vector2"",
-                    ""processors"": ""ScaleVector2(x=50,y=50)"",
+                    ""processors"": ""ScaleVector2(x=25,y=25)"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 }

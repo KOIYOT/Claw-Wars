@@ -17,22 +17,14 @@ public class PlayerBlock : MonoBehaviour
         if (Resistance_ != null && Resistance_.CanBlock_)
         {
             IsBlocking_ = context.ReadValueAsButton();
-
             if (Animator_ != null)
-            {
                 Animator_.SetBool("IsBlocking", IsBlocking_);
-            }
         }
         else
         {
             IsBlocking_ = false;
-
             if (Animator_ != null)
-            {
                 Animator_.SetBool("IsBlocking", false);
-            }
         }
     }
 }
-
-// © 2025 KOIYOT. All rights reserved.

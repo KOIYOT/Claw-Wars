@@ -11,18 +11,17 @@ public class EnemyHealth : MonoBehaviour
     public float BarLerpSpeed_ = 2f;
 
     private Animator Animator_;
-    private bool IsDead_ = false;
+    public bool IsDead_ = false;
+
+    public bool IsDead => IsDead_;
 
     private void Awake()
     {
         CurrentHealth_ = MaxHealth_;
         Animator_ = GetComponentInChildren<Animator>();
 
-        if (BarReal_ != null)
-            BarReal_.value = 1f;
-
-        if (BarDelay_ != null)
-            BarDelay_.value = 1f;
+        if (BarReal_ != null) BarReal_.value = 1f;
+        if (BarDelay_ != null) BarDelay_.value = 1f;
     }
 
     private void Update()
@@ -64,8 +63,6 @@ public class EnemyHealth : MonoBehaviour
         {
             Animator_.SetTrigger("Die");
             Destroy(transform.root.gameObject, 3.2f);
-
         }
     }
 }
-// © 2025 KOIYOT. All rights reserved.

@@ -653,8 +653,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec2504919e58eb94e929d91d65ee13fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionTextFadeDuration_: 0.25
-  InteractionTextString_: Back to Home
-  InteractTextMeshPro_: {fileID: 3136466292855831995}
-  SceneFadeOverlayImage_: {fileID: 7532782166752470571}
-  SceneFadeDuration_: 1
+  InteractionRadius_: 2
+  ReturnTextMessage_: Back to home
+  ReturnText_: {fileID: 3136466292855831995}
+  FadeOverlay_: {fileID: 7532782166752470571}
+  FadeDuration_: 1
+  LobbySceneName_: Lobby

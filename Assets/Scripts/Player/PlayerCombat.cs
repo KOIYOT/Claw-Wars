@@ -5,7 +5,7 @@ public class PlayerCombat : MonoBehaviour
 {
     public float LightAttackCost_ = 5f;
     public float HeavyAttackCost_ = 10f;
-    public GameObject HitboxObject_; // <- Esto es nuevo
+    public GameObject HitboxObject_;
 
     private Animator Animator_;
     private PlayerStamina Stamina_;
@@ -19,6 +19,9 @@ public class PlayerCombat : MonoBehaviour
 
     public void OnLightAttack_(InputAction.CallbackContext context)
     {
+        PlayerBlock block = GetComponent<PlayerBlock>();
+        if (block != null && block.IsBlocking_) return;
+
         if (context.started && !IsAttacking_ && Stamina_.UseStamina_(LightAttackCost_))
         {
             Animator_.SetTrigger("Attack_Light");
@@ -28,6 +31,9 @@ public class PlayerCombat : MonoBehaviour
 
     public void OnHeavyAttack_(InputAction.CallbackContext context)
     {
+        PlayerBlock block = GetComponent<PlayerBlock>();
+        if (block != null && block.IsBlocking_) return;
+
         if (context.started && !IsAttacking_ && Stamina_.UseStamina_(HeavyAttackCost_))
         {
             Animator_.SetTrigger("Attack_Heavy");
@@ -40,7 +46,6 @@ public class PlayerCombat : MonoBehaviour
         IsAttacking_ = true;
         Debug.Log("Ataque iniciado");
 
-        Debug.Log("Activando Hitbox");
         if (HitboxObject_ != null)
             HitboxObject_.GetComponent<AttackHitbox>().ActivateHitbox_();
 
@@ -54,5 +59,4 @@ public class PlayerCombat : MonoBehaviour
 
         IsAttacking_ = false;
     }
-}
-// © 2025 KOIYOT. All rights reserved.
+}   

@@ -1,36 +1,52 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerResistance : MonoBehaviour
 {
-    public float MaxResistance_ = 50f;
-    public float CurrentResistance_ = 50f;
-    public float RegenRate_ = 10f;
+    [Header("Valores de Resistencia")]
+    public float MaxResistance_ = 100f;
+    public float CurrentResistance_;
     public float RegenDelay_ = 2f;
+    public float BrokenRegenRate_ = 20f;
 
-    private float RegenCooldown_;
-    private bool IsBroken_;
+    [Header("UI")]
+    public Slider BarReal_;
+    public Slider BarDelay_;
+    public float BarLerpSpeed_ = 2f;
 
-    public bool CanBlock_ => !IsBroken_;
+    [Header("Estado")]
+    public bool IsBroken_ = false;
+    public bool CanBlock_ { get; private set; } = true;
 
-    private void Update()
+    private float LastHitTime_;
+    private bool WaitingToRegen_ = false;
+
+    void Start()
     {
-        if (!IsBroken_ && CurrentResistance_ < MaxResistance_)
+        CurrentResistance_ = MaxResistance_;
+        if (BarReal_ != null) BarReal_.value = 1f;
+        if (BarDelay_ != null) BarDelay_.value = 1f;
+    }
+
+    void Update()
+    {
+        if (BarDelay_ != null && BarReal_ != null)
         {
-            if (RegenCooldown_ > 0f)
+            float realValue = BarReal_.value;
+            float currentValue = BarDelay_.value;
+            if (currentValue > realValue)
             {
-                RegenCooldown_ -= Time.deltaTime;
-            }
-            else
-            {
-                CurrentResistance_ += RegenRate_ * Time.deltaTime;
-                CurrentResistance_ = Mathf.Min(CurrentResistance_, MaxResistance_);
+                BarDelay_.value = Mathf.Lerp(currentValue, realValue, Time.deltaTime * BarLerpSpeed_);
             }
         }
 
-        if (IsBroken_ && CurrentResistance_ >= MaxResistance_)
+        if (IsBroken_)
         {
-            IsBroken_ = false;
-            Debug.Log("Resistencia recuperada.");
+            RegenerateBroken_();
+        }
+        else if (!WaitingToRegen_ && Time.time - LastHitTime_ >= RegenDelay_)
+        {
+            Regenerate_();
         }
     }
 
@@ -39,16 +55,46 @@ public class PlayerResistance : MonoBehaviour
         if (IsBroken_) return;
 
         CurrentResistance_ -= amount;
-        RegenCooldown_ = RegenDelay_;
-        Debug.Log("Resistencia absorbió golpe. Restante: " + CurrentResistance_);
+        LastHitTime_ = Time.time;
 
-        if (CurrentResistance_ <= 0f)
+        if (BarReal_ != null)
+            BarReal_.value = CurrentResistance_ / MaxResistance_;
+
+        if (CurrentResistance_ <= 0)
         {
             IsBroken_ = true;
-            CurrentResistance_ = 0f;
+            CanBlock_ = false;
+            WaitingToRegen_ = true;
+            Invoke(nameof(StartBrokenRegen_), RegenDelay_);
             Debug.Log("¡Resistencia rota!");
         }
     }
-}
 
-// © 2025 KOIYOT. All rights reserved.
+    void StartBrokenRegen_()
+    {
+        WaitingToRegen_ = false;
+    }
+
+    void Regenerate_()
+    {
+        if (CurrentResistance_ < MaxResistance_)
+        {
+            CurrentResistance_ += BrokenRegenRate_ * Time.deltaTime;
+            CurrentResistance_ = Mathf.Min(CurrentResistance_, MaxResistance_);
+            if (BarReal_ != null)
+                BarReal_.value = CurrentResistance_ / MaxResistance_;
+        }
+    }
+
+    void RegenerateBroken_()
+    {
+        Regenerate_();
+        if (CurrentResistance_ >= MaxResistance_)
+        {
+            CurrentResistance_ = MaxResistance_;
+            IsBroken_ = false;
+            CanBlock_ = true;
+            Debug.Log("Resistencia restaurada por completo.");
+        }
+    }
+}

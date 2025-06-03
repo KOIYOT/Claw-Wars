@@ -33,6 +33,29 @@ public class PlayerMovement : MonoBehaviour
         Controller_ = GetComponent<CharacterController>();
         Stamina_ = GetComponent<PlayerStamina>();
     }
+    
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Collider[] hits = Physics.OverlapSphere(transform.position, 2f);
+            foreach (Collider hit in hits)
+            {
+                if (hit.TryGetComponent<ReturnInteractable>(out var returner))
+                {
+                    returner.ForceTriggerInteract();
+                    return;
+                }
+
+                if (hit.TryGetComponent<MissionInteractable>(out var mission))
+                {
+                    mission.ForceTriggerInteract();
+                    return;
+                }
+            }
+            Debug.Log("No hay misión cerca para interactuar.");
+        }
+    }
 
     public void OnMove_(InputAction.CallbackContext context)
     {

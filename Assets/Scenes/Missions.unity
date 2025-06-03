@@ -470,13 +470,13 @@ MonoBehaviour:
   startPointPrefab: {fileID: 2790699514959594052, guid: 27e5576374cb062489ea807e7339d62b, type: 3}
   endPointPrefab: {fileID: 6348599486083360284, guid: 31c7f9a76b09f5a46a85ab389838dba7, type: 3}
   variantDatabase: {fileID: 11400000, guid: 66855ee25b1765f4eb19f30c46896dfb, type: 2}
-  width: 50
-  height: 50
-  roadBuilders: 3
-  maxSteps: 120
-  turnChance: 0.4
-  branchChance: 0.3
-  minStreetCount: 30
+  width: 12
+  height: 25
+  roadBuilders: 10
+  maxSteps: 512
+  turnChance: 0.0125
+  branchChance: 0.125
+  minStreetCount: 150
   cellSize: 3
 --- !u!4 &1142475550
 Transform:
