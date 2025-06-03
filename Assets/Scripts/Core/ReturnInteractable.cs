@@ -167,8 +167,16 @@ public class ReturnInteractable : MonoBehaviour
         PlayerPrefs.SetInt("ReturnedFromMission", 1);
         PlayerPrefs.Save();
 
-        SceneManager.LoadScene(Scene_);
+        // Aumentar puntos al volver
+        int slot = PlayerPrefs.GetInt("LastUsedSlot", -1);
+        if (slot >= 0 && SaveSystem.HasSaveData(slot))
+        {
+            SaveData data = SaveSystem.LoadFromSlot(slot);
+            data.UpgradePoints_++;
+            SaveSystem.SaveToSlot(slot, data);
+        }
 
+        SceneManager.LoadScene(Scene_);
     }
 
     void SetImageAlpha_(Image Img_, float Alpha_)

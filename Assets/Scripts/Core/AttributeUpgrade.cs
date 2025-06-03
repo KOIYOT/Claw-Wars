@@ -22,9 +22,24 @@ public class AttributeUpgrade : MonoBehaviour
         Slot_ = PlayerPrefs.GetInt("LastUsedSlot", -1);
         UpdateUI_();
 
+        StrengthButton_.onClick.RemoveAllListeners();
+        SpeedButton_.onClick.RemoveAllListeners();
+        StaminaButton_.onClick.RemoveAllListeners();
+
         StrengthButton_.onClick.AddListener(() => UpgradeAttribute_("Strength"));
         SpeedButton_.onClick.AddListener(() => UpgradeAttribute_("Speed"));
         StaminaButton_.onClick.AddListener(() => UpgradeAttribute_("Stamina"));
+
+        // Pausar el juego y mostrar el mouse
+        Time.timeScale = 0f;
+
+        if (MouseLockCenter.Instance != null)
+            MouseLockCenter.Instance.UnlockMouse();
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
     void UpgradeAttribute_(string attribute)
@@ -41,21 +56,29 @@ public class AttributeUpgrade : MonoBehaviour
 
         CurrentData_.UpgradePoints_--;
         SaveSystem.SaveToSlot(Slot_, CurrentData_);
+
         UpdateUI_();
 
-        if (CurrentData_.UpgradePoints_ <= 0)
+        // Cerrar panel automáticamente después de usar un punto
+        gameObject.SetActive(false);
+        Time.timeScale = 1f;
+
+        if (MouseLockCenter.Instance != null)
+            MouseLockCenter.Instance.LockMouse();
+        else
         {
-            StrengthButton_.interactable = false;
-            SpeedButton_.interactable = false;
-            StaminaButton_.interactable = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
 
     void UpdateUI_()
     {
-        UpgradePointsText_.text = $"You have {CurrentData_.UpgradePoints_} points to upgrade";
-        StrengthText_.text = $"Strength = {CurrentData_.Strength_}";
-        SpeedText_.text = $"Speed = {CurrentData_.Speed_}";
-        StaminaText_.text = $"Stamina = {CurrentData_.Stamina_}";
+        if (CurrentData_ == null) return;
+
+        UpgradePointsText_.text = $"Points: {CurrentData_.UpgradePoints_}";
+        StrengthText_.text = $"Fuerza = {CurrentData_.Strength_}";
+        SpeedText_.text = $"Velocidad = {CurrentData_.Speed_}";
+        StaminaText_.text = $"Resistencia = {CurrentData_.Stamina_}";
     }
 }

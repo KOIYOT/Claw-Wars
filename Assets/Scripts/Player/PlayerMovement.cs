@@ -32,8 +32,20 @@ public class PlayerMovement : MonoBehaviour
     {
         Controller_ = GetComponent<CharacterController>();
         Stamina_ = GetComponent<PlayerStamina>();
+
+        // Aplicar multiplicador de velocidad desde SaveData
+        int slot = PlayerPrefs.GetInt("LastUsedSlot", -1);
+        float speedMult = 1f;
+        if (slot >= 0 && SaveSystem.HasSaveData(slot))
+        {
+            SaveData data = SaveSystem.LoadFromSlot(slot);
+            speedMult = data.Speed_;
+        }
+
+        WalkSpeed_ *= speedMult;
+        RunSpeed_ *= speedMult;
     }
-    
+
     public void OnInteract(InputAction.CallbackContext context)
     {
         if (context.performed)

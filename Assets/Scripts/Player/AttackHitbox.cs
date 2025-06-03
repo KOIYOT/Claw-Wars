@@ -6,12 +6,18 @@ public class AttackHitbox : MonoBehaviour
     public bool IsActive_ = false;
 
     private Collider Collider_;
+    private float DamageMultiplier_ = 1f;
 
     private void Awake()
     {
         Collider_ = GetComponent<Collider>();
         Collider_.enabled = false;
         IsActive_ = false;
+    }
+
+    public void SetDamageMultiplier(float multiplier)
+    {
+        DamageMultiplier_ = multiplier;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -21,8 +27,9 @@ public class AttackHitbox : MonoBehaviour
         EnemyHealth enemy = other.GetComponent<EnemyHealth>();
         if (enemy != null)
         {
-            enemy.TakeDamage_(Damage_);
-            Debug.Log("Golpeó a enemigo: " + other.name);
+            float finalDamage = Damage_ * DamageMultiplier_;
+            enemy.TakeDamage_(finalDamage);
+            Debug.Log($"Golpeó a {other.name} por {finalDamage} de daño (mult: {DamageMultiplier_})");
         }
     }
 
@@ -30,13 +37,12 @@ public class AttackHitbox : MonoBehaviour
     {
         Debug.Log("Hitbox ACTIVADA");
         IsActive_ = true;
-        Collider_.enabled = true; // 👈 Ahora sí se activa físicamente
+        Collider_.enabled = true;
     }
 
     public void DeactivateHitbox_()
     {
         IsActive_ = false;
-        Collider_.enabled = false; // 👈 Se apaga físicamente
+        Collider_.enabled = false;
     }
 }
-// © 2025 KOIYOT. All rights reserved.

@@ -8,6 +8,18 @@ public class PlayerStamina : MonoBehaviour
 
     public bool CanUseStamina_ => CurrentStamina_ > 0f;
 
+    private void Start()
+    {
+        int slot = PlayerPrefs.GetInt("LastUsedSlot", -1);
+        if (slot >= 0 && SaveSystem.HasSaveData(slot))
+        {
+            SaveData data = SaveSystem.LoadFromSlot(slot);
+            MaxStamina_ *= data.Stamina_;
+        }
+
+        CurrentStamina_ = MaxStamina_;
+    }
+
     private void Update()
     {
         if (CurrentStamina_ < MaxStamina_)
@@ -25,11 +37,8 @@ public class PlayerStamina : MonoBehaviour
             Debug.Log("Stamina usada: " + amount + " | Actual: " + CurrentStamina_);
             return true;
         }
-        
+
         Debug.Log("No hay suficiente stamina.");
         return false;
     }
 }
-
-
-// © 2025 KOIYOT. All rights reserved.

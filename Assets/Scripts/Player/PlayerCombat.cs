@@ -10,11 +10,19 @@ public class PlayerCombat : MonoBehaviour
     private Animator Animator_;
     private PlayerStamina Stamina_;
     private bool IsAttacking_;
+    private float Strength_ = 1f;
 
     private void Awake()
     {
         Animator_ = GetComponentInChildren<Animator>();
         Stamina_ = GetComponent<PlayerStamina>();
+
+        int slot = PlayerPrefs.GetInt("LastUsedSlot", -1);
+        if (slot >= 0 && SaveSystem.HasSaveData(slot))
+        {
+            SaveData data = SaveSystem.LoadFromSlot(slot);
+            Strength_ = data.Strength_;
+        }
     }
 
     public void OnLightAttack_(InputAction.CallbackContext context)
@@ -44,10 +52,16 @@ public class PlayerCombat : MonoBehaviour
     private void StartAttack_()
     {
         IsAttacking_ = true;
-        Debug.Log("Ataque iniciado");
 
         if (HitboxObject_ != null)
-            HitboxObject_.GetComponent<AttackHitbox>().ActivateHitbox_();
+        {
+            AttackHitbox hitbox = HitboxObject_.GetComponent<AttackHitbox>();
+            if (hitbox != null)
+            {
+                hitbox.SetDamageMultiplier(Strength_);
+                hitbox.ActivateHitbox_();
+            }
+        }
 
         Invoke(nameof(EndAttack_), 0.75f);
     }
@@ -55,8 +69,12 @@ public class PlayerCombat : MonoBehaviour
     private void EndAttack_()
     {
         if (HitboxObject_ != null)
-            HitboxObject_.GetComponent<AttackHitbox>().DeactivateHitbox_();
+        {
+            AttackHitbox hitbox = HitboxObject_.GetComponent<AttackHitbox>();
+            if (hitbox != null)
+                hitbox.DeactivateHitbox_();
+        }
 
         IsAttacking_ = false;
     }
-}   
+}
