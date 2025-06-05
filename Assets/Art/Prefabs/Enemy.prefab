@@ -768,7 +768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d6b7be5dc9ae5343be598ee2d3b7dcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage_: 2
+  Damage_: 1.8
   IsActive_: 0
 --- !u!1 &4556799181527649127 stripped
 GameObject:
@@ -859,5 +859,5 @@ MonoBehaviour:
   WalkSpeed_: 2
   RunSpeed_: 5
   RunThreshold_: 5
-  AttackCooldown_: 0.25
+  AttackCooldown_: 1
   AttackDamage_: 2

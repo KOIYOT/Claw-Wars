@@ -697,6 +697,17 @@
                 },
                 {
                     "name": "",
+                    "id": "9536cca5-1b8d-4f3b-b660-5ca25f36e542",
+                    "path": "<Mouse>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "31e26b28-59e4-4e7b-bec1-ff0bf1653e1d",
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",

@@ -26,12 +26,25 @@ public class PauseMenuController : MonoBehaviour
     {
         playerInput = FindFirstObjectByType<PlayerInput>();
     }
-    private void Start()
+    private IEnumerator Start()
     {
-        if (playerInput != null)
+        // Esperar hasta que el PlayerInput aparezca en escena
+        while (playerInput == null)
         {
-            playerInput.actions["Pause"].performed -= OnPausePressed; // por si ya está duplicado
-            playerInput.actions["Pause"].performed += OnPausePressed;
+            playerInput = FindFirstObjectByType<PlayerInput>();
+            yield return null;
+        }
+
+        var pauseAction = playerInput.actions["Pause"];
+        if (pauseAction != null)
+        {
+            pauseAction.performed -= OnPausePressed;
+            pauseAction.performed += OnPausePressed;
+            Debug.Log("✅ Suscrito a 'Pause' del jugador.");
+        }
+        else
+        {
+            Debug.LogWarning("⚠️ Acción 'Pause' no encontrada.");
         }
     }
 
@@ -107,6 +120,7 @@ public class PauseMenuController : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        Debug.Log(">>> Botón Salir presionado");
         if (MouseLockCenter.Instance != null)
             MouseLockCenter.Instance.UnlockMouse();
 

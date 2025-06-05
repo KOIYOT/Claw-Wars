@@ -2888,7 +2888,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.35
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.55, z: 0}
@@ -3134,6 +3134,9 @@ MonoBehaviour:
   WalkSpeed_: 2
   RunSpeed_: 5
   RotationSpeed_: 10
+  JumpHeight_: 1.5
+  Gravity_: -9.81
+  RunStaminaCostPerSecond_: 2
   CameraTransform_: {fileID: 2330835957334548167}
   Animator_: {fileID: 2196426458405859407}
 --- !u!114 &8499816323247367416
